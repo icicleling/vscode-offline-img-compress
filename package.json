@@ -1,10 +1,10 @@
 {
-  "name": "offlineimgcompress",
-  "displayName": "offlineImgCompress",
+  "name": "offline-img-compress",
+  "displayName": "Offline Img Compress",
   "description": "Offline image compressor",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
-    "vscode": "^1.110.0"
+    "vscode": "^1.74.0"
   },
   "categories": [
     "Other"
@@ -14,10 +14,25 @@
   "contributes": {
     "commands": [
       {
-        "command": "offlineimgcompress.helloWorld",
-        "title": "Hello World"
+        "command": "offline-img-compress.compressionFile",
+        "title": "Compression File"
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "offline-img-compress.compressionFile",
+          "when": "resourceExtname =~ /\\.(jpg|jpeg|png|webp|gif)$/i && !explorerResourceIsFolder && !listMultiSelection",
+          "group": "1_modification"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "offline-img-compress.compressionFile",
+          "when": "false"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -28,13 +43,16 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.110.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
-    "typescript-eslint": "^8.56.1",
+    "@types/vscode": "^1.110.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
     "eslint": "^9.39.3",
     "typescript": "^5.9.3",
-    "@vscode/test-cli": "^0.0.12",
-    "@vscode/test-electron": "^2.5.2"
+    "typescript-eslint": "^8.56.1"
+  },
+  "dependencies": {
+    "sharp": "^0.34.5"
   }
 }
