@@ -11,3 +11,7 @@ For example, `foo.png` -> `foo-compressed.png`.
 ## Extension Settings
 
 None
+
+## Credits
+
+Icons by [OpenMoji](https://openmoji.org/)
