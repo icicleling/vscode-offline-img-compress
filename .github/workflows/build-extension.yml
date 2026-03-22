@@ -1,0 +1,48 @@
+name: Build Extensions
+
+on:
+  push:
+    tags:
+      - "v*" # 推送 v1.0.0 这种标签时触发
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: windows-latest
+            target: win32-x64
+            platform: win32
+            arch: x64
+          - os: ubuntu-latest
+            target: linux-x64
+            platform: linux
+            arch: x64
+          - os: macos-latest
+            target: darwin-x64
+            platform: darwin
+            arch: x64
+          - os: macos-latest
+            target: darwin-arm64
+            platform: darwin
+            arch: arm64
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install Dependencies
+        run: npm install --platform=${{ matrix.platform }} --arch=${{ matrix.arch }}
+
+      - name: Build and Package
+        run: npx @vscode/vsce package --target ${{ matrix.target }} -o ./pkg/ # 只打包，之后手动发布
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: extensions-${{ matrix.target }}
+          path: ./pkg/*.vsix
