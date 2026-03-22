@@ -1,14 +1,28 @@
 {
   "name": "offline-img-compress",
   "displayName": "Offline Img Compress",
-  "description": "Offline image compressor",
-  "version": "1.0.0",
+  "description": "image compression with Sharp",
+  "version": "0.0.1",
+  "keywords": [
+    "image",
+    "compress",
+    "compression",
+    "optimize",
+    "offline",
+    "sharp",
+    "图片",
+    "压缩",
+    "离线",
+    "图片压缩",
+    "离线压缩"
+  ],
   "engines": {
     "vscode": "^1.74.0"
   },
   "categories": [
     "Other"
   ],
+  "publisher": "icicleling",
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {

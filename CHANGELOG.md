@@ -1,5 +1,5 @@
 # Change Log
 
-## 1.0.0
+## 0.0.1
 
 - Single file compression, supports JPEG, PNG, WebP, GIF.
