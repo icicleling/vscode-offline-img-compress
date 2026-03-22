@@ -40,7 +40,10 @@ function getCompressOptions(ext: string) {
     return {
       format: "gif" as const,
       sharpOpts: { animated: true },
-      outOpts: {},
+      outOpts: {
+        colors: 128,
+        effort: 10,
+      },
     };
   }
   return null;
