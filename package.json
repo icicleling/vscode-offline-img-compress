@@ -2,7 +2,7 @@
   "name": "offline-img-compress",
   "displayName": "Offline Img Compress",
   "description": "image compression with Sharp",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": [
     "image",
     "compress",
