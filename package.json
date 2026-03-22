@@ -11,7 +11,6 @@
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
-  "icon": "images/icon.png",
   "contributes": {
     "commands": [
       {
@@ -46,7 +45,7 @@
   "devDependencies": {
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
-    "@types/vscode": "^1.110.0",
+    "@types/vscode": "^1.74.0",
     "@vscode/test-cli": "^0.0.12",
     "@vscode/test-electron": "^2.5.2",
     "eslint": "^9.39.3",
@@ -55,5 +54,15 @@
   },
   "dependencies": {
     "sharp": "^0.34.5"
-  }
+  },
+  "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/icicleling/vscode-offline-img-compress.git"
+  },
+  "bugs": {
+    "url": "https://github.com/icicleling/vscode-offline-img-compress/issues"
+  },
+  "homepage": "https://github.com/icicleling/vscode-offline-img-compress#readme",
+  "license": "MIT"
 }
