@@ -19,21 +19,27 @@ function getCompressOptions(ext: string) {
     return {
       format: "jpeg" as const,
       sharpOpts: {},
-      outOpts: { quality: 80, mozjpeg: true },
+      outOpts: {
+        quality: 75,
+        progressive: true,
+        mozjpeg: true,
+        trellisQuantisation: true,
+        overshootDeringing: true,
+      },
     };
   }
   if (lowerExt === ".png") {
     return {
       format: "png" as const,
       sharpOpts: {},
-      outOpts: { compressionLevel: 9, palette: true },
+      outOpts: { quality: 75, compressionLevel: 9, palette: true },
     };
   }
   if (lowerExt === ".webp") {
     return {
       format: "webp" as const,
       sharpOpts: { animated: true },
-      outOpts: { quality: 80, effort: 6 },
+      outOpts: { quality: 75, effort: 6 },
     };
   }
   if (lowerExt === ".gif") {
