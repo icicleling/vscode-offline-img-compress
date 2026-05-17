@@ -10,7 +10,7 @@ For example, `foo.png` -> `foo-compressed.png`.
 
 ## Extension Settings
 
-None
+This extension offers configurable compression parameters: `offlineImgCompress.jpegQuality`, `offlineImgCompress.pngQuality`, `offlineImgCompress.webpQuality`, and `offlineImgCompress.gifColors`.
 
 ## Credits
 

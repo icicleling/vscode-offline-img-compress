@@ -2,7 +2,7 @@
   "name": "offline-img-compress",
   "displayName": "Offline Img Compress",
   "description": "image compression with Sharp",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "keywords": [
     "image",
     "compress",
@@ -26,6 +26,39 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
+    "configuration": {
+      "title": "Offline Image Compress",
+      "properties": {
+        "offlineImgCompress.jpegQuality": {
+          "type": "number",
+          "default": 75,
+          "minimum": 1,
+          "maximum": 100,
+          "description": "JPEG compression quality (1-100)"
+        },
+        "offlineImgCompress.pngQuality": {
+          "type": "number",
+          "default": 75,
+          "minimum": 1,
+          "maximum": 100,
+          "description": "PNG compression quality (1-100)"
+        },
+        "offlineImgCompress.webpQuality": {
+          "type": "number",
+          "default": 75,
+          "minimum": 1,
+          "maximum": 100,
+          "description": "WebP compression quality (1-100)"
+        },
+        "offlineImgCompress.gifColors": {
+          "type": "number",
+          "default": 128,
+          "minimum": 2,
+          "maximum": 256,
+          "description": "GIF color palette size (2-256)"
+        }
+      }
+    },
     "commands": [
       {
         "command": "offline-img-compress.compressionFile",

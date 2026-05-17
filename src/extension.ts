@@ -3,6 +3,10 @@ import * as path from "path";
 import * as fs from "fs";
 import sharp from "sharp";
 
+function getConfig<T>(key: string, defaultValue: T): T {
+  return vscode.workspace.getConfiguration("offlineImgCompress").get<T>(key, defaultValue);
+}
+
 function formatSize(bytes: number): string {
   if (bytes < 1024) {
     return `${bytes} B`;
@@ -20,7 +24,7 @@ function getCompressOptions(ext: string) {
       format: "jpeg" as const,
       sharpOpts: {},
       outOpts: {
-        quality: 75,
+        quality: getConfig("jpegQuality", 75),
         progressive: true,
         mozjpeg: true,
         trellisQuantisation: true,
@@ -32,14 +36,20 @@ function getCompressOptions(ext: string) {
     return {
       format: "png" as const,
       sharpOpts: {},
-      outOpts: { quality: 75, compressionLevel: 9, palette: true },
+      outOpts: {
+        quality: getConfig("pngQuality", 75),
+        compressionLevel: 9,
+        palette: true,
+      },
     };
   }
   if (lowerExt === ".webp") {
     return {
       format: "webp" as const,
       sharpOpts: { animated: true },
-      outOpts: { quality: 75, effort: 6 },
+      outOpts: {
+        quality: getConfig("webpQuality", 75),
+      },
     };
   }
   if (lowerExt === ".gif") {
@@ -47,8 +57,7 @@ function getCompressOptions(ext: string) {
       format: "gif" as const,
       sharpOpts: { animated: true },
       outOpts: {
-        colors: 128,
-        effort: 10,
+        colors: getConfig("gifColors", 128),
       },
     };
   }

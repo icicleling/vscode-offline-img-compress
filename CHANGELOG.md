@@ -1,5 +1,8 @@
 # Change Log
 
+## 0.0.4
+- add configurable compression parameters in settings
+
 ## 0.0.3
 - update compress options
 
